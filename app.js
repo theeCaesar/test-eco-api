@@ -41,8 +41,15 @@ app.use(hpp());
 // app.enable('trust proxy');
 
 // !!!! the cros options depens on the cloud service this api will run on -- it may needs addtion settings
-// app.use(cors());
-app.use(cors({ origin: 'http://localhost:5173' })); // Replace with your frontend's URL
+// Replace with your frontend's URL
+app.use(cors());
+app.options('*', cors());
+app.use(
+  cors({
+    origin: '*', // Allows all domains
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Allowed HTTP methods
+  }),
+);
 
 // app.options('*', cors());
 app.use(exp.static(path.join(__dirname, 'public')));
