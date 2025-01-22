@@ -11,6 +11,7 @@ const ordersSchema = new mongoose.Schema(
     ReceivedOn: { String },
     status: {
       type: String,
+      default: 'pending',
     },
     totalPrice: {
       type: String,
