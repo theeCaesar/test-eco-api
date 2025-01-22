@@ -10,13 +10,13 @@ exports.getOrders = catchAsyncErrors(async (req, res, next) => {
     .paginaaton()
     .selectFields();
 
-  const Orders = await features.query;
+  const Orders_ = await features.query;
 
   res.status(200).json({
     status: 'success',
-    results: Orders.length,
+    results: Orders_.length,
     data: {
-      Orders,
+      Orders_,
     },
   });
 });
